@@ -1,0 +1,30 @@
+[
+  {
+    "id": "inputPalette",
+    "text": "inputPaletteText",
+    "children": [
+      {
+        "id": "tableInput",
+        "type": "tableInput",
+        "icon": "tableInput.png",
+        "tip": "tableInputTip",
+        "html": "tableInput.html",
+        "tags": null
+      }
+    ]
+  },
+  {
+    "id": "outputPalette",
+    "text": "outputPaletteText",
+    "children": [
+      {
+        "id": "tableOutput",
+        "type": "tableOutput",
+        "icon": "tableOutput.png",
+        "tip": "tableOutputTip",
+        "html": "tableOutput.html",
+        "tags": null
+      }
+    ]
+  }
+]

@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 @Controller
 public class HomeController {
 
-    @RequestMapping(value = "/home.do")
+    @RequestMapping(value = "/")
     public ModelAndView home(HttpServletRequest request,
                              HttpServletResponse response) {
         ModelAndView model = new ModelAndView("home");
