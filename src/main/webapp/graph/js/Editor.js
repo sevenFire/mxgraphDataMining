@@ -1243,6 +1243,27 @@ var ExecutionConfigrationDialog = function(editorUi)
         div.appendChild(cancelBtn);
     }
 
+
+    var saveBtn = mxUtils.button(mxResources.get('save'), function()
+    {
+        editorUi.hideDialog();
+        var paramJsonObj = new Object();
+        paramJsonObj.fileName = editorUi.fileName;
+        var callback = {
+            onSuccess:function(paramJsonObj){
+                if($(".geFooterContainer").height()==0){
+                    editorUi.vsplit.triggerClick=true;
+                    $(".geVsplit").click();
+                }
+            }
+        };
+        AjaxCommunicator.ajaxRequest('/element.do?method=save', 'POST', paramJsonObj, callback);
+
+    });
+    saveBtn.className = 'geBtn';
+    div.appendChild(saveBtn);
+
+
     var runBtn = mxUtils.button(mxResources.get('run'), function()
     {
         editorUi.hideDialog();

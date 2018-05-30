@@ -20,7 +20,7 @@ public class HomeController {
     @RequestMapping(value = "/test.do")
     public ModelAndView test(HttpServletRequest request,
                              HttpServletResponse response) {
-        ModelAndView model = new ModelAndView("/pages/test");
+        ModelAndView model = new ModelAndView("/page/test");
         return model;
     }
 

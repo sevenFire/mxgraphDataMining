@@ -43,6 +43,17 @@ public class DataMiningEditorController {
         return new ModelAndView("/dataMiningEditor");
     }
 
+    @RequestMapping(params="method=saveFile", method = RequestMethod.POST)
+    @ResponseBody
+    public JSONObject saveFile(String ajaxParam) throws IOException {
+        JSONObject ajaxParamObj = null;
+        System.out.println("save file done");
+
+        JSONObject returnInfo = new JSONObject();
+        returnInfo.put("ok","done");
+        return returnInfo;
+    }
+
     @RequestMapping(params="method=executeByEditor", method = RequestMethod.POST)
     @ResponseBody
     public JSONObject executeByEditor(String ajaxParam) throws IOException {
