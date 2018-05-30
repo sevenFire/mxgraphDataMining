@@ -8,11 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="stylesheet" type="text/css" href="graph/styles/grapheditor.css">
     <script type="text/javascript">
-        // Parses URL parameters. Supported parameters are:
-        // - lang=xy: Specifies the language of the user interface.
-        // - touch=1: Enables a touch-style user interface.
-        // - storage=local: Enables HTML5 local storage.
-        // - chrome=0: Chromeless mode.
         var urlParams = (function(url)
         {
             var result = new Object();
@@ -39,8 +34,9 @@
         // Default resources are included in grapheditor resources
         mxLoadResources = false;
     </script>
-    <%--<%@ include file="/bxui/bxuihead.jsp"%>--%>
+
     <script type="text/javascript" src="common/jquery-3.1.0.js"></script>
+    <%@ include file="/common/ajaxRequest.jsp"%>
     <script type="text/javascript" src="graph/js/Init.js"></script>
     <script type="text/javascript" src="graph/deflate/pako.min.js"></script>
     <script type="text/javascript" src="graph/deflate/base64.js"></script>

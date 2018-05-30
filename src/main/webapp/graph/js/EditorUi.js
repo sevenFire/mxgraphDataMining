@@ -3081,34 +3081,34 @@ EditorUi.prototype.createUi = function()
         }));
     }
 
-    // Creates the resultbar
-    this.resultbar=(this.editor.chromeless) ? null : this.createResultbar(this.resultContainer);
-
-    if (this.resultbar != null)
-    {
-        this.container.appendChild(this.resultContainer);
-        /*var tabContains='<div class="tabbable"><ul class="nav nav-tabs" id="resultTab">'
-            +'<li class="active"><a data-toggle="tab" href="#Historys">历史</a></li>'
-            +'<li class=""><a data-toggle="tab" href="#Logs">日志</a></li>'
-            +'<li class=""><a data-toggle="tab" href="#jobMetrics">作业度量</a></li></ul>'
-            +'<div class="tab-content">'
-            +'<div id="Historys" class="tab-pane active"><p></p></div>'
-            +'<div id="Logs" class="tab-pane active"><p></p></div>'
-            +'<div id="JobMetrics" class="tab-pane"><p></p></div></div></div>';
-        $(".geFooterContainer").append(tabContains);*/
-    }
-
-    // Creates Vsplit
-    if (this.resultbar != null)
-    {
-        this.container.appendChild(this.vsplit);
-
-        this.addSplitHandler(this.vsplit, false, 0, mxUtils.bind(this, function(value)
-        {
-            this.vsplitPosition = value;
-            this.refresh();
-        }));
-    }
+    // // Creates the resultbar
+    // this.resultbar=(this.editor.chromeless) ? null : this.createResultbar(this.resultContainer);
+    //
+    // if (this.resultbar != null)
+    // {
+    //     this.container.appendChild(this.resultContainer);
+    //     /*var tabContains='<div class="tabbable"><ul class="nav nav-tabs" id="resultTab">'
+    //         +'<li class="active"><a data-toggle="tab" href="#Historys">历史</a></li>'
+    //         +'<li class=""><a data-toggle="tab" href="#Logs">日志</a></li>'
+    //         +'<li class=""><a data-toggle="tab" href="#jobMetrics">作业度量</a></li></ul>'
+    //         +'<div class="tab-content">'
+    //         +'<div id="Historys" class="tab-pane active"><p></p></div>'
+    //         +'<div id="Logs" class="tab-pane active"><p></p></div>'
+    //         +'<div id="JobMetrics" class="tab-pane"><p></p></div></div></div>';
+    //     $(".geFooterContainer").append(tabContains);*/
+    // }
+    //
+    // // Creates Vsplit
+    // if (this.resultbar != null)
+    // {
+    //     this.container.appendChild(this.vsplit);
+    //
+    //     this.addSplitHandler(this.vsplit, false, 0, mxUtils.bind(this, function(value)
+    //     {
+    //         this.vsplitPosition = value;
+    //         this.refresh();
+    //     }));
+    // }
 };
 
 /**

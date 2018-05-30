@@ -1247,7 +1247,8 @@ var ExecutionConfigrationDialog = function(editorUi)
     {
         editorUi.hideDialog();
         var paramJsonObj = new Object();
-        if(editorUi.currentMode_Is_Job){  //全局变量判断当前执行文件的类�?            paramJsonObj.executeObjectType = "job";
+        if(editorUi.currentMode_Is_Job){
+
         }else{
             paramJsonObj.executeObjectType = "transformation";
         }
@@ -1260,7 +1261,7 @@ var ExecutionConfigrationDialog = function(editorUi)
                 }
 			}
 		};
-        AjaxCommunicator.ajaxRequest('/jobtransexecutor.do?method=executeByEditor', 'POST', paramJsonObj, callback);
+        AjaxCommunicator.ajaxRequest('/dataMiningEditor.do?method=executeByEditor', 'POST', paramJsonObj, callback);
 
     });
     runBtn.className = 'geBtn';

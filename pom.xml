@@ -100,7 +100,64 @@
       <scope>runtime</scope>
     </dependency>
 
+    <dependency>
+      <groupId>ai.h2o</groupId>
+      <artifactId>h2o-core</artifactId>
+      <version>3.18.0.8</version>
+    </dependency>
+
+    <dependency>
+      <groupId>ai.h2o</groupId>
+      <artifactId>h2o-algos</artifactId>
+      <version>3.18.0.8</version>
+    </dependency>
+
+    <dependency>
+      <groupId>ai.h2o</groupId>
+      <artifactId>h2o-genmodel</artifactId>
+      <version>3.18.0.8</version>
+    </dependency>
+
+    <dependency>
+      <groupId>ai.h2o</groupId>
+      <artifactId>h2o-persist-hdfs</artifactId>
+      <version>3.18.0.8</version>
+    </dependency>
+
+    <dependency>
+      <groupId>ai.h2o</groupId>
+      <artifactId>h2o-bindings</artifactId>
+      <version>3.18.0.8</version>
+    </dependency>
+      <!--<dependency>-->
+          <!--<groupId>com.google.code.gson</groupId>-->
+          <!--<artifactId>gson</artifactId>-->
+          <!--<version>2.3.1</version>-->
+      <!--</dependency>-->
+
+
   </dependencies>
+
+  <profiles>
+    <profile>
+      <id>dev</id>
+      <properties>
+        <bxui.path>${project.basedir}/../bxui</bxui.path>
+        <bxui.exclude>dist</bxui.exclude>
+        <bxui.exclude>node_modules</bxui.exclude>
+      </properties>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+        <!--默认启用的是dev环境配置 -->
+      </activation>
+    </profile>
+    <profile>
+      <id>package</id>
+      <properties>
+        <bxui.path>${project.basedir}/../bxui/dist</bxui.path>
+      </properties>
+    </profile>
+  </profiles>
 
   <build>
     <finalName>mxgraphDataMining</finalName>
