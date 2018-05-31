@@ -1249,6 +1249,12 @@ var ExecutionConfigrationDialog = function(editorUi)
         editorUi.hideDialog();
         var paramJsonObj = new Object();
         paramJsonObj.fileName = editorUi.fileName;
+
+        var enc1 = new mxCodec(mxUtils.createXmlDocument());
+        var node1 = enc1.encode(graph.getModel());
+        var xml1 = mxUtils.getXml(node1);
+
+        paramJsonObj.xml1 = exml1;
         var callback = {
             onSuccess:function(paramJsonObj){
                 if($(".geFooterContainer").height()==0){
