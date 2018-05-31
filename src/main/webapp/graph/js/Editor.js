@@ -1252,9 +1252,9 @@ var ExecutionConfigrationDialog = function(editorUi)
 
         var enc1 = new mxCodec(mxUtils.createXmlDocument());
         var node1 = enc1.encode(graph.getModel());
-        var xml1 = mxUtils.getXml(node1);
+        var graphXml = mxUtils.getXml(node1);
 
-        paramJsonObj.xml1 = exml1;
+        paramJsonObj.graphXml = graphXml;
         var callback = {
             onSuccess:function(paramJsonObj){
                 if($(".geFooterContainer").height()==0){
@@ -1274,12 +1274,12 @@ var ExecutionConfigrationDialog = function(editorUi)
     {
         editorUi.hideDialog();
         var paramJsonObj = new Object();
-        if(editorUi.currentMode_Is_Job){
-
-        }else{
-            paramJsonObj.executeObjectType = "transformation";
-        }
         paramJsonObj.fileName = editorUi.fileName;
+
+        var enc1 = new mxCodec(mxUtils.createXmlDocument());
+        var node1 = enc1.encode(graph.getModel());
+        var graphXml = mxUtils.getXml(node1);
+        paramJsonObj.graphXml = graphXml;
         var callback = {
         	onSuccess:function(paramJsonObj){
                 if($(".geFooterContainer").height()==0){

@@ -2,7 +2,10 @@ package com.lyh.controller;
 
 
 import com.alibaba.fastjson.JSONObject;
+import com.lyh.service.GBM;
+import com.lyh.util.XMLParseUtil;
 
+import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -10,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.io.IOException;
+import java.util.Map;
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
@@ -57,20 +61,37 @@ public class DataMiningEditorController {
     @RequestMapping(params="method=executeByEditor", method = RequestMethod.POST)
     @ResponseBody
     public JSONObject executeByEditor(String ajaxParam) throws IOException {
-        JSONObject ajaxParamObj = null;
 
-//        GBM();
-        DL();
+        JSONObject ajaxParamObj = JSONObject.parseObject(ajaxParam);
+        String graphXml = ajaxParamObj.getString("graphXml");
+        System.out.println(graphXml);
 
-        JSONObject returnInfo = new JSONObject();
-        returnInfo.put("ok","done");
-        return returnInfo;
+        Map<String, String> mapIn = XMLParseUtil.parseXml(graphXml);
+        executeAlogs(mapIn);
+
+        return null;
+    }
+
+    private void executeAlogs(Map<String, String> mapIn) {
+        String trainAlg = mapIn.get("train")==null? "":mapIn.get("train");
+        if (!StringUtils.equals("",trainAlg)){
+            if (StringUtils.equals("GBM",trainAlg)){
+                GBM gbm = new GBM();
+                try {
+                    gbm.computeRemote();
+                }catch (IOException ex){
+                    System.out.println("执行算法失败，原因是："+ ex.toString());
+                }
+            }else{
+                System.out.println("暂不支持此算法");
+            }
+        }
     }
 
     private void DL() throws IOException {
         //H2O start
-        String url = "http://localhost:54321/";
-//        String url = "http://168.2.8.85:54321/";
+//        String url = "http://localhost:54321/";
+        String url = "http://168.2.8.130:54321/";
         H2oApi h2o = new H2oApi(url);
 
         //STEP 0: init a session

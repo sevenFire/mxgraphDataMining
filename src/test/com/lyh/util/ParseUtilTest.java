@@ -52,6 +52,7 @@ public class ParseUtilTest {
                     System.out.println("split");
                 }else if(StringUtils.equals(style,"ellipse;whiteSpace=wrap;html=1;")){
                     System.out.println("train");
+                    paraMap.put("train","GBM");
                 }else if(StringUtils.equals(style,"ellipse;whiteSpace=wrap;html=1;aspect=fixed;")){
                     System.out.println("predict");
                 }
