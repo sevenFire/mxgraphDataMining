@@ -2,6 +2,9 @@ package com.lyh.controller;
 
 
 import com.alibaba.fastjson.JSONObject;
+import com.lyh.model.DAGGraph;
+import com.lyh.model.KahnTopo;
+import com.lyh.model.Vertex;
 import com.lyh.service.GBM;
 import com.lyh.util.XMLParseUtil;
 
@@ -66,8 +69,15 @@ public class DataMiningEditorController {
         String graphXml = ajaxParamObj.getString("graphXml");
         System.out.println(graphXml);
 
-        Map<String, String> mapIn = XMLParseUtil.parseXml(graphXml);
-        executeAlogs(mapIn);
+        DAGGraph dagGraph = XMLParseUtil.parseXmlToDAGGraph(graphXml);
+        dagGraph.buildGraph();
+        KahnTopo topo = new KahnTopo(dagGraph);
+        topo.process();
+        for(Vertex vertex : topo.getResult()){
+            System.out.print(vertex.getVertexLabel()+ "-->");
+        }
+
+//        executeAlogs(mapIn);
 
         return null;
     }

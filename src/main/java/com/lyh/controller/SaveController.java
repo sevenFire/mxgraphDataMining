@@ -40,7 +40,7 @@ public class SaveController {
         JSONObject ajaxParamObj = JSONObject.parseObject(ajaxParam);
         String graphXml = ajaxParamObj.getString("graphXml");
         System.out.println(graphXml);
-        Map<String, String> mapIn = XMLParseUtil.parseXml(graphXml);
+//        Map<String, String> mapIn = XMLParseUtil.parseXml(graphXml);
 //        JSONObject returnInfo = executeAlogs(mapIn);
 //        return returnInfo;
         return null;
